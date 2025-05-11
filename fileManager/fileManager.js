@@ -29,6 +29,13 @@ const listTask = () =>{
   )
 };
 
+const removeTask= (task)=>{
+  const tasks = loadTasks();
+  tasks.pop({task})
+  saveTasks(tasks)
+  console.log("Task Deleted successfully!")
+}
+
 
 
 const command = process.argv[2]
