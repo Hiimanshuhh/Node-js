@@ -3,9 +3,9 @@ const filePath = "./tasks.json";
 
 const loadTasks=()=>{
   try {
-    const dataBuffer = fs.readFileSync(filePath);
-    const dataJSON = dataBuffer.toString();
-    return JSON.parse(dataJSON);
+    const dataBuffer = fs.readFileSync(filePath)
+    const dataJSON = dataBuffer.toString()
+    return JSON.parse(dataJSON)
   } catch (error) {
     return [];
   }
@@ -18,10 +18,16 @@ const saveTasks=(tasks)=>{
 
 const addTask = (task)=>{
   const tasks = loadTasks()
-  tasks.push(task)
+  tasks.push({task})
   saveTasks(tasks)
   console.log("Task Added!", task)
 }
+
+const listTask = () =>{
+  const tasks = loadTasks();
+  tasks.forEach((task,index)=> console.log(`${index+1} - ${task.task}`)
+  )
+};
 
 
 
